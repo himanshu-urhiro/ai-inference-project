@@ -1,0 +1,39 @@
+{
+    "models": {
+        "model_dir": "./models",
+        "default_model": {
+            "name": "video_classifier",
+            "path": "./models/video_classifier.pt"
+        },
+        "optimization": {
+            "quantize": true,
+            "to_onnx": false
+        }
+    },
+    "video": {
+        "frame_skip": 2,
+        "queue_size": 30,
+        "target_size": [224, 224],
+        "convert_to_rgb": true,
+        "normalize": true,
+        "imagenet_norm": true,
+        "add_batch_dim": true,
+        "to_pytorch_format": true
+    },
+    "inference": {
+        "batch_size": 1,
+        "device": "auto",
+        "threshold": 0.5
+    },
+    "api": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "cors_origins": ["*"],
+        "max_fps": 10
+    },
+    "monitoring": {
+        "interval": 5.0,
+        "log_level": "INFO",
+        "enable_resource_monitoring": true
+    }
+}
